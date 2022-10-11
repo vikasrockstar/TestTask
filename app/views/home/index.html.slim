@@ -1,0 +1,110 @@
+link[rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"]
+script[src="https://code.jquery.com/jquery-3.6.0.js"]
+script[src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"]
+div[data-controller="home"]
+  div[style="text-align: center; margin-top: 150px; "]
+    button.inline-block.px-6.py-2.5.bg-blue-600.text-white.font-medium.text-xs.leading-tight.uppercase.rounded.shadow-md.hover:bg-blue-700.hover:shadow-lg.focus:bg-blue-700.focus:shadow-lg.focus:outline-none.focus:ring-0.active:bg-blue-800.active:shadow-lg.transition.duration-150.ease-in-out[type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-action="click->home#launchModal"]
+      |  Personal Data
+    button.inline-block.px-6.py-2.5.bg-blue-600.text-white.font-medium.text-xs.leading-tight.uppercase.rounded.shadow-md.hover:bg-blue-700.hover:shadow-lg.focus:bg-blue-700.focus:shadow-lg.focus:outline-none.focus:ring-0.active:bg-blue-800.cursor-not-allowed[style="background-color: grey; margin-left:6px;" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"]
+      |  Employment
+    #staticBackdrop.modal.fade.fixed.top-0.left-0.hidden.w-full.h-full.outline-none.overflow-x-hidden.overflow-y-auto[data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="left: 30%; width: 555px; overflow: hidden; margin-top: 25px"]
+      .modal-dialog.relative.w-auto.pointer-events-none[style="border: 0.5px solid grey"]
+        .modal-content.border-none.shadow-lg.relative.flex.flex-col.w-full.pointer-events-auto.bg-white.bg-clip-padding.rounded-md.outline-none.text-current
+          .modal-header.flex.flex-shrink-0.items-center.justify-between.p-4.border-b.border-gray-200.rounded-t-md
+            h5#exampleModalLabel.text-xl.font-medium.leading-normal.text-gray-800.center
+              |  Personal data
+            h3#header[style="color:red"]
+            button.btn-close.box-content.w-4.h-4.p-1.text-black.border-none.rounded-none.opacity-50.focus:shadow-none.focus:outline-none.focus:opacity-100.hover:text-black.hover:opacity-75.hover:no-underline[type="button" data-bs-dismiss="modal" aria-label="Close"]
+          .modal-body.relative.p-4
+            .md:flex.md:items-center.mb-6
+              div
+                label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4[for="inline-full-name"]
+                  |  First Name
+              .md:w-2/3
+                input#firstName.bg-gray-200.appearance-none.border-2.border-gray-200.rounded.w-full.py-2.px-4.text-gray-700.leading-tight.focus:outline-none.focus:bg-white.focus:border-purple-500[data-home-target="firstName" data-action="input->home#handleChange" type="text"]
+                p#alert1.text-left.mt-2.text-sm.text-red-600.dark:text-red-500[style="display: none"]
+                  span.font-medium
+                    | first name should be not greater than 25 character
+            .md:flex.md:items-center.mb-6
+              div
+                label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4[for="inline-full-name"]
+                  |  Last Name
+              .md:w-2/3
+                input#lastName.bg-gray-200.appearance-none.border-2.border-gray-200.rounded.w-full.py-2.px-4.text-gray-700.leading-tight.focus:outline-none.focus:bg-white.focus:border-purple-500[data-home-target="lastName" data-action="input->home#handleChange" type="text"]
+                p#alert2.text-left.mt-2.text-sm.text-red-600.dark:text-red-500[style="display: none"]
+                  span.font-medium
+                    | last name should be not greater than 50 character
+            .md:flex.md:items-center.mb-6
+              div
+                label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4[for="inline-full-name"]
+                  |  Nick Name
+              .md:w-2/3
+                input#nickName.bg-gray-200.appearance-none.border-2.border-gray-200.rounded.w-full.py-2.px-4.text-gray-700.leading-tight.focus:outline-none.focus:bg-white.focus:border-purple-500[data-home-target="nickName" data-action="input->home#handleChange" type="text"]
+                p#alert3.text-left.mt-2.text-sm.text-red-600.dark:text-red-500[style="display: none"]
+                  span.font-medium
+                    | nick name should be not greater than 25 character
+            .md:flex.md:items-center.mb-6
+              div
+                label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4[for="inline-full-name"]
+                  |  Email
+              .md:w-2/3.ml-9
+                input#email.bg-gray-200.appearance-none.border-2.border-gray-200.rounded.w-full.py-2.px-4.text-gray-700.leading-tight.focus:outline-none.focus:bg-white.focus:border-purple-500[data-home-target="email" data-action="input->home#handleChange" type="text"]
+                p#alert4.text-left.mt-2.text-sm.text-red-600.dark:text-red-500[style="display: none"]
+                  span.font-medium
+                    | email is not valid
+            .md:flex.md:items-center.mb-6
+              div
+                label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4[for="inline-full-name"]
+                  |  Phone
+              .md:w-2/3.ml-8
+                input#phone.bg-gray-200.appearance-none.border-2.border-gray-200.rounded.w-full.py-2.px-4.text-gray-700.leading-tight.focus:outline-none.focus:bg-white.focus:border-purple-500[data-home-target="phone" data-action="input->home#handleChange" type="text"]
+          .modal-footer.flex.flex-shrink-0.flex-wrap.items-center.justify-end.p-4.border-t.border-gray-200.rounded-b-md
+            button.inline-block.px-6.py-2.5.bg-red-600.text-white.font-medium.text-xs.leading-tight.uppercase.rounded.shadow-md.hover:bg-red-700.hover:shadow-lg.focus:bg-red-700.focus:shadow-lg.focus:outline-none.focus:ring-0.active:bg-red-800.active:shadow-lg.transition.duration-150.ease-in-out[type="button" data-bs-dismiss="modal" data-action="click->home#closeModal"]
+              |  Cancel
+            button.inline-block.px-6.py-2.5.bg-green-600.text-white.font-medium.text-xs.leading-tight.uppercase.rounded.shadow-md.hover:bg-green-700.hover:shadow-lg.focus:bg-green-700.focus:shadow-lg.focus:outline-none.focus:ring-0.active:bg-green-800.active:shadow-lg.transition.duration-150.ease-in-out.ml-1[type="button" data-action="click->home#handleSave mouseover->home#handleChange"]
+              |  Save
+    #employmentForm.modal.fade.fixed.top-0.left-0.hidden.w-full.h-full.outline-none.overflow-x-hidden.overflow-y-auto[data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="left: 30%; width: 555px; overflow: hidden; margin-top: 25px"]
+      .modal-dialog.relative.w-auto.pointer-events-none[style="border: 0.5px solid grey"]
+        .modal-content.border-none.shadow-lg.relative.flex.flex-col.w-full.pointer-events-auto.bg-white.bg-clip-padding.rounded-md.outline-none.text-current
+          .modal-header.flex.flex-shrink-0.items-center.justify-between.p-4.border-b.border-gray-200.rounded-t-md
+            h5#exampleModalLabel.text-xl.font-medium.leading-normal.text-gray-800.center
+              |  Employment Form
+            p#successMsg[style="color:green; display: none;"]
+              | Employment added successfully
+            h3#heading
+            button.btn-close.box-content.w-4.h-4.p-1.text-black.border-none.rounded-none.opacity-50.focus:shadow-none.focus:outline-none.focus:opacity-100.hover:text-black.hover:opacity-75.hover:no-underline[type="button" data-bs-dismiss="modal" aria-label="Close"]
+          .modal-body.relative.p-4
+            .md:flex.md:items-center.mb-6
+              div[style="
+                width: 23%;
+                margin-left: -5px;"]
+                label.block.text-gray-500.font-bold.md:text-left.mb-1.ml-5.md:mb-0.pr-4[for="inline-full-name"]
+                  |  Employer
+              .md:w-2/3
+                input#employer.bg-gray-200.appearance-none.border-2.border-gray-200.rounded.w-full.py-2.px-4.text-gray-700.leading-tight.focus:outline-none.focus:bg-white.focus:border-purple-500[data-home-target="employer" data-action="input->home#handleEmpChange" type="text"]
+                p#alert1.text-left.mt-2.text-sm.text-red-600.dark:text-red-500[style="display: none"]
+                  span.font-medium
+                    | first name should be not greater than 25 character
+            .md:flex.md:items-center.mb-6
+              div
+                label.block.text-gray-500.font-bold.md:text-right.mb-1.md:mb-0.pr-4[for="inline-full-name"]
+                  |  Date Started
+              .md:w-2/3
+                input#startDate.bg-gray-200.appearance-none.border-2.border-gray-200.rounded.w-full.py-2.px-4.text-gray-700.leading-tight.focus:outline-none.focus:bg-white.focus:border-purple-500[data-home-target="dateStarted" data-action="input->home#handleEmpChange focus->home#handleEmpChange" value=""]
+            .md:flex.md:items-center.mb-6
+              div[style="width: 23%"]
+                label.block.text-gray-500.font-bold.md:text-left.mb-1.md:mb-0.pr-4[for="inline-full-name" style="text-align: left"]
+                  |  Date Employment Ended
+              .md:w-2/3
+                input#endDate.bg-gray-200.appearance-none.border-2.border-gray-200.rounded.w-full.py-2.px-4.text-gray-700.leading-tight.focus:outline-none.focus:bg-white.focus:border-purple-500[data-home-target="dateEnded" data-action="input->home#handleEmpChange focus->home#handleEmpChange"]
+            .modal-footer.flex.flex-shrink-0.flex-wrap.items-center.justify-end.p-4.border-t.border-gray-200.rounded-b-md
+              button#addBtn.inline-block.px-6.py-2.5.bg-blue-600.text-white.font-medium.text-xs.leading-tight.uppercase.rounded.shadow-md.hover:bg-blue-700.hover:shadow-lg.focus:bg-blue-700.focus:shadow-lg.focus:outline-none.focus:ring-0.active:bg-blue-800.active:shadow-lg.transition.duration-150.ease-in-out[type="button" data-bs-dismiss="modal" data-action="click->home#handleAddEmp mouseover->home#handleEmpChange"]
+                |  Add Employment
+              button#saveBtn.inline-block.px-6.py-2.5.bg-green-600.text-white.font-medium.text-xs.leading-tight.uppercase.rounded.shadow-md.hover:bg-green-700.hover:shadow-lg.focus:bg-green-700.focus:shadow-lg.focus:outline-none.focus:ring-0.active:bg-green-800.active:shadow-lg.transition.duration-150.ease-in-out.ml-1[style="display:none" data-action="click->home#handleEmpSave mouseover->home#handleEmpChange"]
+                |  Save
+              button#disabledBtn.bg-blue-200.text-white.font-bold.py-2.5.px-6.rounded.text-xs.uppercase.cursor-not-allowed.ml-1[style="background-color: grey; display: block; "]
+                |  Save
+    #userData[style="height: 300px; overflow:auto; margin-left:0px !important; position: absolute; margin-top:'15px'; "]
+      table#employees
+  script
+    |  $( function() { var from = $( "#startDate" ) .datepicker({ dateFormat: "mm/dd/yy", changeMonth: true }) .on( "change", function() { to.datepicker( "option", "minDate", getDate( this ) ); }), to = $( "#endDate" ).datepicker({ dateFormat: "mm/dd/yy", changeMonth: true }) .on( "change", function() { from.datepicker( "option", "maxDate", getDate( this ) ); }); function getDate( element ) { var date; var dateFormat = "mm/dd/yy"; try { date = $.datepicker.parseDate( dateFormat, element.value ); } catch( error ) { date = null; } return date; } });
