@@ -62,6 +62,10 @@ export default class extends Controller {
     }
     return input;
   }
+  convertDateFormat = (dateString) => {
+    const [month, day, year] = dateString.split('/');
+    return  [day, month, year].join('/');
+  };
 
   handleChange() {
     const err = document.getElementById("alert1");
@@ -96,6 +100,7 @@ export default class extends Controller {
         phone_number: this.phoneTarget.value,
       },
     };
+    console.log(this.phoneTarget?.value?.length,'value')
   }
 
   async handleSave() {
@@ -159,8 +164,8 @@ export default class extends Controller {
       this.employerData = {
         employment: {
           employer_name: this.employerTarget?.value,
-          start_date: this.dateStartedTarget?.value,
-          end_date: this.dateEndedTarget?.value,
+          start_date:this.convertDateFormat(this.dateStartedTarget?.value),
+          end_date:this.convertDateFormat(this.dateEndedTarget?.value),
         },
       };
     }
