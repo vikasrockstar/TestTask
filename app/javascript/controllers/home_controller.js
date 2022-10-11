@@ -107,7 +107,7 @@ export default class extends Controller {
       this.personalData?.user?.phone_number === "" ||
       this.personalData === undefined
     ) {
-      header.innerHTML = `<p style="colo:red;">please fill all details</p>`;
+      header.innerHTML = `<p style="color:red;">please fill all details</p>`;
     } else if (!/.+@.+\.[A-Za-z]+$/.test(this.personalData?.user.email)) {
       this.emailAlert.style.display = "block";
     } else {
@@ -124,7 +124,7 @@ export default class extends Controller {
         let data = await res.json();
         this.id = data.id;
         if (res?.status === 201) {
-          header.innerHTML = `<p style="colo:red;">email has already been taken</p>`;
+          header.innerHTML = `<p style="color:red;">email has already been taken</p>`;
           this.closeModal();
           this.openEmplyModal();
           this.personalData = {};
@@ -195,7 +195,7 @@ export default class extends Controller {
           setTimeout(() => {
             successMsg.style.display = "none";
           }, [2000]);
-          header.innerHTML = `<p style="colo:red;">email has already been taken</p>`;
+          header.innerHTML = `<p style="color:red;">email has already been taken</p>`;
           this.employerData = {};
         }
       } catch (error) {
@@ -229,9 +229,9 @@ export default class extends Controller {
         });
         let data = await res.json();
         if (res?.status === 200) {
-          header.innerHTML = `<p style="colo:red;">email has already been taken</p>`;
+          header.innerHTML = `<p style="color:red;">email has already been taken</p>`;
           setTimeout(() => {
-            header.innerHTML = `<p style="colo:red;"></p>`;
+            header.innerHTML = `<p style="color:red;"></p>`;
           }, [1000]);
           document.getElementById("employer").value = "";
           document.getElementById("startDate").value = "";
