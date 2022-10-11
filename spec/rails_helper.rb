@@ -2,6 +2,15 @@
 require 'spec_helper'
 require_relative 'support/factory_bot'
 require_relative 'support/chrome'
+require 'shoulda/matchers'
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    require "active_record"
+    with.library :active_record
+    with.library :active_model
+  end
+end
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
