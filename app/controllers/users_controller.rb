@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  protect_from_forgery with: :null_session
+  protect_from_forgery with: :exception, unless: -> { request.format.json? }
+  before_action :set_user, only: [:update]
 
   def index
     render json: User.all, status: 200
@@ -14,18 +15,20 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find_by(id: params[:id])
-    raise ActiveRecord::RecordNotFound unless user.present?
-    employment = user.employments.create(employment_params)
+    employment = @user.employments.create(employment_params)
     raise ActiveRecord::RecordInvalid if employment&.errors.any?
-    render json: user.employments, status: 200
-  rescue ActiveRecord::RecordNotFound
-    render json: 'User Not Found', status: 400
+    render json: @user.employments, status: 200
   rescue ActiveRecord::RecordInvalid
     render json: employment.errors, status: 400
   end
 
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render json: 'User Not Found', status: 400
+  end
 
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :nickname, :phone_number)
