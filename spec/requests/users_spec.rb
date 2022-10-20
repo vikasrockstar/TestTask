@@ -91,7 +91,7 @@ RSpec.describe "Users", type: :request do
       expect(Employment.last.employer_name).to eq('web')
     end
 
-    scenario "invalid user attributes" do
+    scenario "invalid employment attributes" do
       post 'http://127.0.0.1:3000/users', params: {
         "user": {
           "email":"vk@gmail.com",
