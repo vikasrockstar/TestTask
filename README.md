@@ -30,3 +30,4 @@ https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-
 * Start the server using below command
 
 * ./bin/dev
+* Aceess the front end UI: http://127.0.0.1:3000/
